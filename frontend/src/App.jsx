@@ -15,7 +15,7 @@ const {authUser}=useContext(AuthContext);
       <Toaster/>
       <Routes>
         <Route path="/" element={authUser?<HomePage />:<Navigate to="/login" />} />
-        <Route path="/login" element={!authUser?<Loginpage />:<Navigate to="/" />} />
+        <Route path="/login" element={authUser?<Navigate to="/" />:<Loginpage />} />
         <Route path="/profile" element={authUser?<ProfilePage/>:<Navigate to="/login" />} />
       </Routes>
     </div>
