@@ -1,5 +1,5 @@
 import React from "react";
-import assets, { imagesDummyData } from "../assets/assets";
+import assets from "../assets/assets";
 import { useContext } from "react";
 import ChatContainer from "./ChatContainer";
 import { ChatContext } from "../../context/ChatContext";
@@ -22,13 +22,13 @@ const RightSidebar = () => {
   return (
     selectedUser && (
       <div
-        className={`bg-[#8185B2]/10 text-white w-full relative overflow-y-scroll ${
+        className={`bg-[#8185B2]/10 text-white w-full relative overflow-y-auto overflow-x-hidden ${
           selectedUser ? "max-md:hidden" : ""
         }`}
       >
         <div className="pt-16 flex flex-col items-center justify-center font-light mx-auto text-xs">
           <img
-            src={selectedUser?.profilePic || assets.avatar_icon}
+             src={selectedUser.profilePic || assets.avatar_icon}
             alt=""
             className="w-10 aspect-[1/1] rounded-full"
           />

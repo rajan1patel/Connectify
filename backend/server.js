@@ -23,22 +23,7 @@ export const io=new Server(server,{
 //store online user
 export const userSocketMap={};  //{user id:socketid}
 
-// socket.io connnectionhandler 
 
-// io.on("connection",(socket)=>{
-//   const userId=socket.handshake.query.userId;
-//   console.log(userId);
-//   if(userId) userSocketMap[userId]=socket.id;
-
-//   io.emit("getONline user",Object.keys(userSocketMap));
-  
-//   socket.on("disconnect",()=>{
-//     console.log("user disconnected",userId);
-//     delete userSocketMap[userId];
-//     io.emit("get onlineusers",Object.keys(userSocketMap));
-//   })
-
-// })
 
 io.on("connection", (socket) => {
   const userId = socket.handshake.query.userId;
@@ -64,7 +49,6 @@ io.on("connection", (socket) => {
 });
 
 
-const PORT = process.env.PORT || 3000;
 
 //middlewares
 app.use(cors());    
@@ -77,10 +61,18 @@ app.use(express.json({ limit: '4mb' }));
 app.use('/api/statues', (req, res) => {
   res.send('Statues API is working!');
 });
+
 app.use('/api/auth', userRouter);
 app.use("/api/messages",messageRouter)
 
 await connectDB();
+
+if(process.env.NODE_ENV!=='production'){
+const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+}
+
+export default server;
+

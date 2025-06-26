@@ -105,7 +105,11 @@ const Sidebar = () => {
       {/* Header Section */}
       <div className="pb-5">
         <div className="flex justify-between items-center">
-          <img src={assets.logo} alt="logo" className="max-w-40" />
+          {/* <img src={assets.logo} alt="logo"  /> */}
+          <h2 className="bg-gradient-to-r from-purple-400 to-violet-600 bg-clip-text text-transparent font-bold text-xl">
+  Connectify
+</h2> 
+
           <div className="relative py-2 group">
             <img
               src={assets.menu_icon}
