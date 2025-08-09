@@ -96,6 +96,8 @@ const Sidebar = () => {
     getUsers();
   }, [onlineUsers]);
 
+  
+
   return (
     <div
       className={`bg-[#8185B2]/10 h-full p-5 rounded-r-xl overflow-y-scroll text-white ${
@@ -107,16 +109,21 @@ const Sidebar = () => {
         <div className="flex justify-between items-center">
           {/* <img src={assets.logo} alt="logo"  /> */}
           <h2 className="bg-gradient-to-r from-purple-400 to-violet-600 bg-clip-text text-transparent font-bold text-xl">
-  Connectify
-</h2> 
+            Connectify
+          </h2>
 
           <div className="relative py-2 group">
+            
+            
+            
             <img
               src={assets.menu_icon}
               alt="menu"
               className="max-h-5 cursor-pointer"
             />
             <div className="absolute top-full right-0 z-20 w-32 p-5 rounded-md bg-[#282142] border border-gray-600 text-gray-100 hidden group-hover:block">
+
+        
               <p
                 onClick={() => navigate("/profile")}
                 className="cursor-pointer text-sm"
@@ -154,12 +161,12 @@ const Sidebar = () => {
             }`}
           >
             <img
-              src={user?.profilePicture || assets.avatar_icon}
+              src={user?.profilePic || assets.avatar_icon}
               alt="profile"
               className="w-[35px] aspect-square rounded-full"
             />
             <div className="flex flex-col leading-5">
-              <p className="text-sm font-semibold">{user.fullName}</p>
+              <p className="text-sm font-semibold ">{user.fullName}</p>
               {onlineUsers.includes(user._id) ? (
                 <span className="flex items-center gap-1 text-green-400 text-xs">
                   <span className="w-2 h-2 bg-green-400 rounded-full"></span>{" "}

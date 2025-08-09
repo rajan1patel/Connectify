@@ -103,7 +103,7 @@ const ChatContainer = () => {
                 {msg.text}
               </p>
             )}
-            <div className="text-center text-xs">
+            {/* <div className="text-center text-xs">
               <img
                 src={
                   msg.senderId === authUser._id
@@ -115,7 +115,7 @@ const ChatContainer = () => {
                 className="w-7 rounded-full"
               />
               <p className="text-gray-500">{formatMessageDate(msg.createdAt)}</p>
-            </div>
+            </div> */}
           </div>
         ))}
         <div ref={scrollEnd}></div>
